@@ -1,2 +1,37 @@
 @import "variables";
 @import "utilities";
+
+
+.icon-container {
+  width: 200px;
+}
+
+.icon {
+  width: 100%;
+  display: inline-block;
+}
+
+
+.location {
+  background-color: $accent-dark-400;
+}
+
+.location--header {
+  @include d-flex;
+  justify-content: space-between;
+}
+
+.location--status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.forecast {
+  background-color: $accent-dark-600;
+}
+
+
+.highlights {
+  background-color: $accent-dark-600;
+}
