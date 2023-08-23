@@ -6,6 +6,11 @@
   width: 200px;
 }
 
+.main {
+  height: 100vh;
+
+}
+
 .icon {
   width: 100%;
   display: inline-block;
@@ -16,12 +21,12 @@
   background-color: $accent-dark-400;
 }
 
-.location--header {
+.location--group-1 {
   @include d-flex;
   justify-content: space-between;
 }
 
-.location--status {
+.location--group-2 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,9 +34,52 @@
 
 .forecast {
   background-color: $accent-dark-600;
+  padding: 3.25rem;
+
 }
+
+.forecast-center {
+  margin: 0 auto;
+  max-width: $max-w-xs;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem 1.26rem;
+}
+
+.forecast-item {
+  flex: 0 0 120px;
+  height: 177px;
+  background-color: $accent-dark-400;
+}
+
+.ra {
+  align-self: start;
+}
+
+
 
 
 .highlights {
   background-color: $accent-dark-600;
 }
+
+
+.highlights-center {
+  @include d-flex;
+
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  row-gap: 2rem;
+
+}
+
+
+.highlights-item {
+  width: 328px;
+  height: 204px;
+  background-color: $accent-dark-400;
+}
+

@@ -4,7 +4,8 @@
 @import "layout";
 
 body {
-  @include color-scheme($accent-light-200, $accent-dark-300)
+  font-family: $font-sans-1;
+  color: $accent-light-200;
 }
 
 
