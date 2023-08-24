@@ -1,4 +1,5 @@
 import Icon from './components/Icon.jsx'
+import { FaLocationArrow} from 'react-icons/fa'
 
 function App () {
 
@@ -7,16 +8,23 @@ function App () {
       <div className="main-center">
         <div className="location">
           <div className="location--group-1">
-            <div>search</div>
-            <div>current location</div>
+            <div className="location--group-1-btn">
+              <p>Search for places</p>
+            </div>
+            <div className="location--group-1-btn-2">
+              <FaLocationArrow/>
+            </div>
           </div>
           <div className="location--group-2">
             <Icon url="cloudy-day-3"/>
           </div>
 
           <div className="location--group-3">
-            <h2>15c</h2>
-            <h3>Shower</h3>
+            <div className="location--group-3-center">
+              <h1 className="location--group-3-center__temp">15℃</h1>
+              <h3>Shower</h3>
+              <h3></h3>
+            </div>
           </div>
         </div>
 
