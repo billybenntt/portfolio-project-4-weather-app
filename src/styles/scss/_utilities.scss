@@ -38,6 +38,20 @@
   font-weight: bold;
 }
 
+@mixin text-2xl {
+  font-size: map-get($font-sizes, "2xl");
+  line-height: map-get($line-height, "5");
+  font-weight: bold;
+}
+
+
+@mixin text-3xl {
+  font-size: map-get($font-sizes, "3xl");
+  line-height: map-get($line-height, "5");
+  font-weight: bold;
+}
+
+
 @mixin d-block {
   display: block;
 }
@@ -76,8 +90,7 @@
 }
 
 
-
-//  COLOR SCHEMES 
+//  COLOR SCHEMES
 
 @mixin color-scheme($color-1, $color-2) {
   background-color: $color-1;
