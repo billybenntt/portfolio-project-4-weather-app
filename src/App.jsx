@@ -1,168 +1,183 @@
-  import Icon from './components/Icon.jsx'
-  import { FaLocationArrow } from 'react-icons/fa'
-  import { GiPositionMarker } from 'react-icons/gi'
+import Icon from './components/Icon.jsx'
+import { FaLocationArrow } from 'react-icons/fa'
+import { GiPositionMarker } from 'react-icons/gi'
 
-  function App () {
+function App () {
 
-    return (
-      <main className="main">
-        <div className="main-center">
-          <div className="location">
+  return (
+    <main className="main">
+      <div className="main-center">
+        <div className="location">
 
-            {/*HEADER */}
-            <div className="location__header">
-              <div className="location__header-btn">
-                <p>Search for places</p>
-              </div>
-              <div className="location__header-btn-rounded">
-                <FaLocationArrow/>
-              </div>
+          {/*HEADER */}
+          <div className="location__header">
+            <div className="location__header-btn">
+              <p>Search for places</p>
             </div>
-            <div className="location__status">
-              <Icon url="cloudy-day-3"/>
+            <div className="location__header-btn-rounded">
+              <FaLocationArrow/>
             </div>
-            <div className="location__data">
-              <div className="location__data-center">
-                <div className="location__data-temp">
-                  <p>15</p>
-                  <span>℃</span>
-                </div>
-                <div className="location__data-condition">
-                  <p>Shower</p>
-                </div>
-                <div className="location__data-date">
-                  <p>Today</p>
-                  <p>.</p>
-                  <p>Fri, 5 Jun</p>
-                </div>
-                <div className="location__data--place">
-                  <GiPositionMarker/>
-                  <p>Helsinki</p>
-                </div>
+          </div>
+          <div className="location__status">
+            <Icon url="cloudy-day-3"/>
+          </div>
+          <div className="location__data">
+            <div className="location__data-center">
+              <div className="location__data-temp">
+                <p>15</p>
+                <span>℃</span>
+              </div>
+              <div className="location__data-condition">
+                <p>Shower</p>
+              </div>
+              <div className="location__data-date">
+                <p>Today</p>
+                <p>.</p>
+                <p>Fri, 5 Jun</p>
+              </div>
+              <div className="location__data--place">
+                <GiPositionMarker/>
+                <p>Helsinki</p>
               </div>
             </div>
           </div>
+        </div>
 
 
-          {/* FORECAST  */}
-          <div className="forecast">
-            <div className="forecast-center">
+        {/* FORECAST  */}
+        <div className="forecast">
+          <div className="forecast-center">
 
-              {/* ITEM */}
-              <div className="forecast-item">
-                <div className="forecast-item__center">
-                  <p>Tomorrow</p>
-                  <Icon url="cloudy-day-1"/>
-                  <div className="forecast-item-temp">
-                    <div className="forecast-item-temp-min">
-                      <p>15</p>
-                      <span>℃</span>
-                    </div>
-                    <div className="forecast-item-temp-max">
-                      <p>15</p>
-                      <span>℃</span>
-                    </div>
+            {/* ITEM */}
+            <div className="forecast-item">
+              <div className="forecast-item__center">
+                <p>Tomorrow</p>
+                <Icon url="cloudy-day-1"/>
+                <div className="forecast-item-temp">
+                  <div className="forecast-item-temp-min">
+                    <p>15</p>
+                    <span>℃</span>
+                  </div>
+                  <div className="forecast-item-temp-max">
+                    <p>15</p>
+                    <span>℃</span>
                   </div>
                 </div>
               </div>
-
-              <div className="forecast-item">
-                <div className="forecast-item__center">
-                  <p>Tomorrow</p>
-                  <Icon url="cloudy-day-1"/>
-                  <div className="forecast-item-temp">
-                    <div className="forecast-item-temp-min">
-                      <p>15</p>
-                      <span>℃</span>
-                    </div>
-                    <div className="forecast-item-temp-max">
-                      <p>15</p>
-                      <span>℃</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="forecast-item">
-                <div className="forecast-item__center">
-                  <p>Tomorrow</p>
-                  <Icon url="cloudy-day-1"/>
-                  <div className="forecast-item-temp">
-                    <div className="forecast-item-temp-min">
-                      <p>15</p>
-                      <span>℃</span>
-                    </div>
-                    <div className="forecast-item-temp-max">
-                      <p>15</p>
-                      <span>℃</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="forecast-item">
-                <div className="forecast-item__center">
-                  <p>Tomorrow</p>
-                  <Icon url="cloudy-day-1"/>
-                  <div className="forecast-item-temp">
-                    <div className="forecast-item-temp-min">
-                      <p>15</p>
-                      <span>℃</span>
-                    </div>
-                    <div className="forecast-item-temp-max">
-                      <p>15</p>
-                      <span>℃</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="forecast-item">
-                <div className="forecast-item__center">
-                  <p>Tomorrow</p>
-                  <Icon url="cloudy-day-1"/>
-                  <div className="forecast-item-temp">
-                    <div className="forecast-item-temp-min">
-                      <p>15</p>
-                      <span>℃</span>
-                    </div>
-                    <div className="forecast-item-temp-max">
-                      <p>15</p>
-                      <span>℃</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-
             </div>
+
+            <div className="forecast-item">
+              <div className="forecast-item__center">
+                <p>Tomorrow</p>
+                <Icon url="cloudy-day-1"/>
+                <div className="forecast-item-temp">
+                  <div className="forecast-item-temp-min">
+                    <p>15</p>
+                    <span>℃</span>
+                  </div>
+                  <div className="forecast-item-temp-max">
+                    <p>15</p>
+                    <span>℃</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="forecast-item">
+              <div className="forecast-item__center">
+                <p>Tomorrow</p>
+                <Icon url="cloudy-day-1"/>
+                <div className="forecast-item-temp">
+                  <div className="forecast-item-temp-min">
+                    <p>15</p>
+                    <span>℃</span>
+                  </div>
+                  <div className="forecast-item-temp-max">
+                    <p>15</p>
+                    <span>℃</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="forecast-item">
+              <div className="forecast-item__center">
+                <p>Tomorrow</p>
+                <Icon url="cloudy-day-1"/>
+                <div className="forecast-item-temp">
+                  <div className="forecast-item-temp-min">
+                    <p>15</p>
+                    <span>℃</span>
+                  </div>
+                  <div className="forecast-item-temp-max">
+                    <p>15</p>
+                    <span>℃</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="forecast-item">
+              <div className="forecast-item__center">
+                <p>Tomorrow</p>
+                <Icon url="cloudy-day-1"/>
+                <div className="forecast-item-temp">
+                  <div className="forecast-item-temp-min">
+                    <p>15</p>
+                    <span>℃</span>
+                  </div>
+                  <div className="forecast-item-temp-max">
+                    <p>15</p>
+                    <span>℃</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
           </div>
+        </div>
 
-          <div className="highlights">
-            <h2 className="highlights-title">Today’s Highlights</h2>
+        <div className="highlights">
 
 
-            <div className="highlights-center">
+          <div className="highlights-center">
 
-              <div>
+            <div>
               <div className="highlights-item">
                 <div className="highlights-item__center">
                   <p className="highlights-item__center-title">Wind Status</p>
                   <p className="highlights-item__center-value"></p>
                 </div>
               </div>
-              <div className="highlights-item">highlights item</div>
+              <div className="highlights-item">
+                <div className="highlights-item__center">
+                  <p className="highlights-item__center-title">Humidity</p>
+                  <p className="highlights-item__center-value"></p>
+                </div>
               </div>
-           <div>
-                <div className="highlights-item">highlights item</div>
-              <div className="highlights-item">highlights item</div>
-           </div>
+            </div>
+
+            <div>
+              <div className="highlights-item">
+                <div className="highlights-item__center">
+                  <p className="highlights-item__center-title">Visibility</p>
+                  <p className="highlights-item__center-value"></p>
+                </div>
+              </div>
+              <div className="highlights-item">
+                <div className="highlights-item__center">
+                  <p className="highlights-item__center-title">Air Pressure</p>
+                  <p className="highlights-item__center-value"></p>
+                </div>
+              </div>
             </div>
           </div>
-
         </div>
-      </main>
-    )
-  }
 
-  export default App
+      </div>
+    </main>
+  )
+}
+
+export default App
