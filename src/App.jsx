@@ -46,7 +46,10 @@ function App () {
 
         {/* FORECAST  */}
         <div className="forecast">
-          <div className="forecast-center">
+
+          <h3 className="section__title">Weekly Forecast</h3>
+
+          <div className="forecast__center">
 
             {/* ITEM */}
             <div className="forecast-item">
@@ -140,36 +143,33 @@ function App () {
 
         <div className="highlights">
 
+          <h3 className="section__title">Today Highlights</h3>
 
-          <div className="highlights-center">
+          <div className="highlights__center">
 
-            <div>
-              <div className="highlights-item">
-                <div className="highlights-item__center">
-                  <p className="highlights-item__center-title">Wind Status</p>
-                  <p className="highlights-item__center-value"></p>
-                </div>
+            <div className="highlights-item">
+              <div className="highlights-item__center">
+                <p className="highlights-item__center-title">Wind Status</p>
+                <p className="highlights-item__center-value"></p>
               </div>
-              <div className="highlights-item">
-                <div className="highlights-item__center">
-                  <p className="highlights-item__center-title">Humidity</p>
-                  <p className="highlights-item__center-value"></p>
-                </div>
+            </div>
+            <div className="highlights-item">
+              <div className="highlights-item__center">
+                <p className="highlights-item__center-title">Humidity</p>
+                <p className="highlights-item__center-value"></p>
               </div>
             </div>
 
-            <div>
-              <div className="highlights-item">
-                <div className="highlights-item__center">
-                  <p className="highlights-item__center-title">Visibility</p>
-                  <p className="highlights-item__center-value"></p>
-                </div>
+            <div className="highlights-item">
+              <div className="highlights-item__center">
+                <p className="highlights-item__center-title">Visibility</p>
+                <p className="highlights-item__center-value"></p>
               </div>
-              <div className="highlights-item">
-                <div className="highlights-item__center">
-                  <p className="highlights-item__center-title">Air Pressure</p>
-                  <p className="highlights-item__center-value"></p>
-                </div>
+            </div>
+            <div className="highlights-item">
+              <div className="highlights-item__center">
+                <p className="highlights-item__center-title">Air Pressure</p>
+                <p className="highlights-item__center-value"></p>
               </div>
             </div>
           </div>
