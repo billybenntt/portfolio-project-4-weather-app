@@ -1,5 +1,6 @@
 import Icon from './components/Icon.jsx'
 import { FaLocationArrow } from 'react-icons/fa'
+import { FaCrosshairs } from 'react-icons/fa'
 import { GiPositionMarker } from 'react-icons/gi'
 
 function App () {
@@ -15,7 +16,7 @@ function App () {
               <p>Search for places</p>
             </div>
             <div className="location__header-btn-rounded">
-              <FaLocationArrow/>
+              <FaCrosshairs/>
             </div>
           </div>
           <div className="location__status">
@@ -149,27 +150,42 @@ function App () {
 
             <div className="highlights-item">
               <div className="highlights-item__center">
-                <p className="highlights-item__center-title">Wind Status</p>
-                <p className="highlights-item__center-value"></p>
+                <p className="highlights-item-title">Wind Status</p>
+                <p className="highlights-item-value">
+                  <span>7</span> mph
+                </p>
+                <div className="highlights-item-status">
+                  <div className="location__header-btn-rounded">
+                    <FaLocationArrow/>
+                  </div>
+                </div>
               </div>
             </div>
+
+
             <div className="highlights-item">
               <div className="highlights-item__center">
-                <p className="highlights-item__center-title">Humidity</p>
-                <p className="highlights-item__center-value"></p>
+                <p className="highlights-item-title">Humidity</p>
+                <p className="highlights-item-value">
+                  <span>84</span> %
+                </p>
               </div>
             </div>
 
             <div className="highlights-item">
               <div className="highlights-item__center">
-                <p className="highlights-item__center-title">Visibility</p>
-                <p className="highlights-item__center-value"></p>
+                <p className="highlights-item-title">Visibility</p>
+                <p className="highlights-item-value">
+                  <span>6,4</span> Miles
+                </p>
               </div>
             </div>
             <div className="highlights-item">
               <div className="highlights-item__center">
-                <p className="highlights-item__center-title">Air Pressure</p>
-                <p className="highlights-item__center-value"></p>
+                <p className="highlights-item-title">Air Pressure</p>
+                <p className="highlights-item-value">
+                  <span>998</span> mb
+                </p>
               </div>
             </div>
           </div>
