@@ -1,11 +1,26 @@
 import SmallCard from './SmallCard.jsx'
 import LargeCard from './LargeCard.jsx'
+import { forecast } from '../data/constants.jsx'
 
 function MainContent () {
 
+  const forecastList = forecast.map((item) => {
+    const { dayTitle, img } = item
+    return (
+      <SmallCard
+        key={item.id}
+        dayTitle={dayTitle}
+        img={img}
+        max={20}
+        min={12}
+        temp="C"
+      />
+    )
+  })
+
+
   return (
     <div className="text-gray-150 p-10 flex-grow">
-
       {/*TEMP SWITCH*/}
       <div className="space-x-3 text-right">
         <button className="bg-gray-150 rounded-full w-10 h-10 text-darkblue font-bold text-xl">
@@ -18,20 +33,7 @@ function MainContent () {
 
       {/*FORECAST */}
       <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 my-5 gap-10 justify-center">
-        <SmallCard
-          dayTitle="Tomorrow"
-          img="Shower"
-          max={20}
-          min={12}
-          temp="C"
-        />
-        <SmallCard
-          dayTitle="Sun, 7 Jun"
-          img="Clear"
-          max={27}
-          min={18}
-          temp="C"
-        />
+        {forecastList}
       </div>
 
       {/*HIGHLIGHTS */}
