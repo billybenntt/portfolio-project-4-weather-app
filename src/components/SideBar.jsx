@@ -1,20 +1,20 @@
-import { useState } from 'react'
 import SearchLocation from './SearchLocation.jsx'
+import { useGlobalContext } from '../hooks/context.jsx'
 
 function SideBar () {
-  const [isOpen, setIsOpen] = useState(false)
+
+  const { isSideBarOpen, toggleSidebar } = useGlobalContext()
 
   return (
     <div className="flex flex-col min-h-screen bg-darkblue w-full lg:w-1/3 p-7 lg:p-4 xl:p-7 space-y-10 overflow-x-hidden">
-      {isOpen ? (
-        <SearchLocation onClose={() => setIsOpen(false)}/>
+      {isSideBarOpen ? (
+        <SearchLocation/>
       ) : (
         <>
           <div className="relative flex justify-between mb-10">
             <button
               className="static z-10 px-4 py-2 text bg-[#6E707A] hover:bg-[#6E707A]/70 text-gray-150 shadow-lg"
-              onClick={() => setIsOpen(true)}
-            >
+              onClick={toggleSidebar}>
               Search for places
             </button>
             <button className="static z-10 px-4 py-2 text bg-[#6E707A] hover:bg-[#6E707A]/70 text-gray-150 rounded-full shadow-lg">
@@ -24,7 +24,7 @@ function SideBar () {
 
           <div className="relative -mx-36 flex justify-center items-center max-h-40">
             <img
-              src="/images/Cloud-background.png"
+              src="/images/Clear.png"
               alt="bg"
               className="opacity-10 absolute max-w-52"
             />

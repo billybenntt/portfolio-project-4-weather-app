@@ -5,6 +5,8 @@ function MainContent () {
 
   return (
     <div className="text-gray-150 p-10 flex-grow">
+
+      {/*TEMP SWITCH*/}
       <div className="space-x-3 text-right">
         <button className="bg-gray-150 rounded-full w-10 h-10 text-darkblue font-bold text-xl">
           &deg;C
@@ -14,6 +16,7 @@ function MainContent () {
         </button>
       </div>
 
+      {/*FORECAST */}
       <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 my-5 gap-10 justify-center">
         <SmallCard
           dayTitle="Tomorrow"
@@ -31,6 +34,7 @@ function MainContent () {
         />
       </div>
 
+      {/*HIGHLIGHTS */}
       <div className="my-10">
         <h3 className="text-2xl font-bold mb-5">Today Highlights</h3>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 justify-center">
