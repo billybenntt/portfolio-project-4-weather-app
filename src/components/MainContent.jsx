@@ -18,12 +18,11 @@ function MainContent () {
     )
   })
 
-
   return (
     <div className="text-gray-150 p-10 flex-grow">
       {/*TEMP SWITCH*/}
       <div className="space-x-3 text-right">
-        <button className="bg-gray-150 rounded-full w-10 h-10 text-darkblue font-bold text-xl">
+        <button className="bg-gray-150 rounded-full w-10 h-10 text -darkblue font-bold text-xl">
           &deg;C
         </button>
         <button className="bg-[#585676] rounded-full w-10 h-10 text-gray-150 font-bold text-xl">
@@ -40,6 +39,8 @@ function MainContent () {
       <div className="my-10">
         <h3 className="text-2xl font-bold mb-5">Today Highlights</h3>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 justify-center">
+
+          {/*WIND STATUS*/}
           <LargeCard title="Wind Status" num={7} desc="mph">
             <div className="flex justify-between space-x-5 items-center">
               <div className="bg-gray-500 rounded-full w-[30px] h-[30px] flex justify-center items-center">
@@ -49,6 +50,7 @@ function MainContent () {
             </div>
           </LargeCard>
 
+          {/*HUMIDITY*/}
           <LargeCard title="Humidity" num={84} desc="%">
             <div className="self-stretch text-gray-250 text-xs space-y-1">
               <div className="flex justify-between space-x-5 items-center px-1">
@@ -66,8 +68,10 @@ function MainContent () {
             </div>
           </LargeCard>
 
+          {/*VISIBILITY*/}
           <LargeCard title="Visibility" num={6.4} desc=" miles"/>
 
+          {/*AIR PRESSURE*/}
           <LargeCard title="Air Pressure" num={998} desc=" mb"/>
         </div>
       </div>

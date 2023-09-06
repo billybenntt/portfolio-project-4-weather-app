@@ -23,12 +23,14 @@ function SideBar () {
           </div>
 
           <div className="relative -mx-36 flex justify-center items-center max-h-40">
+            {/*BACKGROUND */}
             <img
-              src="/images/Clear.png"
-              alt="bg"
+              src="/images/Cloud-background.png"
+              alt="cloud-background"
               className="opacity-10 absolute max-w-52"
             />
-            <img src="/images/Shower.png" alt="weather" className="max-h-48"/>
+            {/* WEATHER ICON */}
+            <img src="/images/Shower.png" alt="weather-icon" className="max-h-48"/>
           </div>
 
           <div className="flex flex-col items-center justify-between flex-grow pt-6">
