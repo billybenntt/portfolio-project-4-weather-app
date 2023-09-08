@@ -32,8 +32,6 @@ function AppProvider ({ children }) {
     console.log("Wind Degrees->", deg)
     console.log("Wind Speed->", speed)
 
-
-
   })
 
   const toggleSidebar = () => {
