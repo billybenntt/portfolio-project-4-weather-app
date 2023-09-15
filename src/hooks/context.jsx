@@ -18,24 +18,30 @@ function AppProvider ({ children }) {
 
   const { list } = forecastData
 
+  console.log(list.length)
+
   list.map(({ dt, main, wind, visibility }) => {
 
     const date = new Date(dt * 1000)
     const { temp_min, temp_max, pressure, humidity } = main
-    const {deg, speed} = wind
+    const { deg, speed } = wind
 
-    console.log("Date->", date)
-    console.log("Minimum Temp->", temp_min)
-    console.log("Maximum Temp->", temp_max)
-    console.log("Air Pressure->", pressure)
-    console.log("Humidity %->", humidity)
-    console.log("Wind Degrees->", deg)
-    console.log("Wind Speed->", speed)
+
+    if (date.getHours() === 23) {
+      console.log(date)
+      console.log('Minimum Temp->', temp_min)
+      console.log('Maximum Temp->', temp_max)
+      console.log('Air Pressure->', pressure)
+      console.log('Humidity %->', humidity)
+      console.log('Wind Degrees->', deg)
+      console.log('Wind Speed->', speed)
+    }
 
   })
 
   const toggleSidebar = () => {
     dispatch({ type: 'TOGGLE_SIDEBAR' })
+
   }
 
   // FETCH DATA
