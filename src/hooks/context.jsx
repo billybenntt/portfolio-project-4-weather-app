@@ -9,26 +9,26 @@ const initialState = {
   isSideBarOpen: false,
 }
 
-const AppContext = createContext(undefined)
+const processData = (list) => {
 
-function AppProvider ({ children }) {
+  const holdingData = []
 
-  // REDUCER INIT
-  const [state, dispatch] = useReducer(reducerFunction, initialState, undefined)
+  list.map(({ dt, main, wind, visibility, weather }) => {
 
-  const { list } = forecastData
-
-  console.log(list.length)
-
-  list.map(({ dt, main, wind, visibility }) => {
-
+    //   Destructure
+    const [weather_data] = weather
     const date = new Date(dt * 1000)
     const { temp_min, temp_max, pressure, humidity } = main
     const { deg, speed } = wind
 
+    // new object
+
+
+
 
     if (date.getHours() === 23) {
       console.log(date)
+      console.log(weather_data)
       console.log('Minimum Temp->', temp_min)
       console.log('Maximum Temp->', temp_max)
       console.log('Air Pressure->', pressure)
@@ -38,6 +38,20 @@ function AppProvider ({ children }) {
     }
 
   })
+
+  return list
+}
+
+const AppContext = createContext(undefined)
+
+function AppProvider ({ children }) {
+
+  // REDUCER INIT
+  const [state, dispatch] = useReducer(reducerFunction, initialState, undefined)
+
+  const { list } = forecastData
+
+  processData(list)
 
   const toggleSidebar = () => {
     dispatch({ type: 'TOGGLE_SIDEBAR' })

@@ -1,7 +1,7 @@
 export const forecast = [
   {
     id: 1,
-    dayTitle: 'Day 1',
+    dayTitle: 'Day Today ',
     img: 'Clear',
     max: 20,
     min: 12,
