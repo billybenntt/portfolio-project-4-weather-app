@@ -10,10 +10,12 @@ const initialState = {
 }
 
 const processData = (list) => {
-
-  const holdingData = []
+  const all_records = []
 
   list.map(({ dt, main, wind, visibility, weather }) => {
+
+    // new object
+    const packed_data = {}
 
     //   Destructure
     const [weather_data] = weather
@@ -21,24 +23,23 @@ const processData = (list) => {
     const { temp_min, temp_max, pressure, humidity } = main
     const { deg, speed } = wind
 
-    // new object
-
-
-
-
+    // Grab last record
     if (date.getHours() === 23) {
-      console.log(date)
-      console.log(weather_data)
-      console.log('Minimum Temp->', temp_min)
-      console.log('Maximum Temp->', temp_max)
-      console.log('Air Pressure->', pressure)
-      console.log('Humidity %->', humidity)
-      console.log('Wind Degrees->', deg)
-      console.log('Wind Speed->', speed)
+      packed_data.date = date
+      packed_data.weather_data = weather_data.main
+      packed_data.temp_min = temp_min
+      packed_data.temp_max = temp_max
+      packed_data.air_pressure = pressure
+      packed_data.humidity = humidity
+      packed_data.wind_direction = deg
+      packed_data.wind_speed = speed
+      packed_data.visibility = visibility
+      all_records.push(packed_data)
     }
 
   })
 
+  console.log(all_records)
   return list
 }
 
