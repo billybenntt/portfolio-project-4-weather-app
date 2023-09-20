@@ -30,7 +30,7 @@ function SideBar () {
               className="opacity-10 absolute max-w-52"
             />
             {/* WEATHER ICON */}
-            <img src="/images/Shower.png" alt="weather-icon" className="max-h-48"/>
+            <img src="/images/01.svg" alt="weather-icon" style={{ height: 300, width: 300 }}/>
           </div>
 
           <div className="flex flex-col items-center justify-between flex-grow pt-6">

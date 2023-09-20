@@ -1,16 +1,16 @@
 export const forecast = [
   {
     id: 1,
-    dayTitle: 'Day Today ',
-    img: 'Clear',
+    dayTitle: 'Today ',
+    img: '01',
     max: 20,
     min: 12,
     temp: 'C',
   },
   {
     id: 2,
-    dayTitle: 'Day 2',
-    img: 'Hail',
+    dayTitle: 'Tomorrow',
+    img: '02',
     max: 20,
     min: 12,
     temp: 'C',
@@ -18,7 +18,7 @@ export const forecast = [
   {
     id: 3,
     dayTitle: 'Day 3',
-    img: 'HeavyCloud',
+    img: '03',
     max: 20,
     min: 12,
     temp: 'C',
@@ -26,7 +26,7 @@ export const forecast = [
   {
     id: 4,
     dayTitle: 'Day 4',
-    img: 'Sleet',
+    img: '09',
     max: 20,
     min: 12,
     temp: 'C',
@@ -34,7 +34,7 @@ export const forecast = [
   {
     id: 5,
     dayTitle: 'Day 5',
-    img: 'LightRain',
+    img: '10',
     max: 20,
     min: 12,
     temp: 'C',

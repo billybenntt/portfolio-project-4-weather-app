@@ -4,6 +4,12 @@ import { forecast } from '../data/constants.jsx'
 
 function MainContent () {
 
+
+
+
+
+
+
   const forecastList = forecast.map((item) => {
     const { dayTitle, img } = item
     return (
