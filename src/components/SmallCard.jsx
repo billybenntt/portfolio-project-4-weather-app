@@ -1,11 +1,11 @@
 function SmallCard (props) {
 
-  const { dayTitle, img, min, max, temp } = props
+  const { weather_title, weather_icon, temp_min, temp_max } = props
 
   return (
     <div className="bg-darkblue py-4 px-5 flex flex-col items-center space-y-4">
-      <p>{dayTitle}</p>
-      <img src={`/images/${img}.png`} alt="weather-icon" className="max-h-16"/>
+      <p>{weather_title}</p>
+      <img src={`/images/static/03.svg`} alt="weather-icon" style={{  width: '100px' }}/>
       <div className="flex justify-between space-x-5">
         <p>
           {max}&deg;{temp}

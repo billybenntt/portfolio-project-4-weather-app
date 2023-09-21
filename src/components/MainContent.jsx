@@ -1,20 +1,24 @@
 import SmallCard from './SmallCard.jsx'
 import LargeCard from './LargeCard.jsx'
-import { forecast } from '../data/constants.jsx'
+import { useGlobalContext } from '../hooks/context.jsx'
+import { nanoid } from 'nanoid'
+
+import forecast from '../data/constants.jsx'
 
 function MainContent () {
 
-
-
-
+  const { weatherData } = useGlobalContext()
 
 
 
   const forecastList = forecast.map((item) => {
     const { dayTitle, img } = item
+
+    const id = nanoid()
+
     return (
       <SmallCard
-        key={item.id}
+        key={id}
         dayTitle={dayTitle}
         img={img}
         max={20}

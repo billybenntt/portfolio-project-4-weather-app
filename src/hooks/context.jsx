@@ -1,16 +1,13 @@
 import { useEffect, useReducer, createContext, useContext } from 'react'
 import reducerFunction from './reducer.jsx'
-import { processData } from '../utilities/processData.js'
-import forecastData from '../data/mockData.js'
+import defaultData from '../data/apiMockData.js'
 
 // Initial Reducer State
 const initialState = {
-  loading: false,
+  isLoading: false,
   isSideBarOpen: false,
-  weather_data : []
+  weatherData: defaultData
 }
-
-
 
 const AppContext = createContext(undefined)
 
@@ -19,12 +16,19 @@ function AppProvider ({ children }) {
   // REDUCER INIT
   const [state, dispatch] = useReducer(reducerFunction, initialState, undefined)
 
-  const { list } = forecastData
-
-  processData(list)
+  console.log(state.weatherData)
 
   const toggleSidebar = () => {
     dispatch({ type: 'TOGGLE_SIDEBAR' })
+  }
+
+  const fetchWeather = () => {
+    dispatch({ type: 'SET_LOADING' })
+
+
+
+
+
   }
 
   // FETCH DATA

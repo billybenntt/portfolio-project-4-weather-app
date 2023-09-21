@@ -25,12 +25,12 @@ function SideBar () {
           <div className="relative -mx-36 flex justify-center items-center max-h-40">
             {/*BACKGROUND */}
             <img
-              src="/images/Cloud-background.png"
+              src="/images/cloud_bg.png"
               alt="cloud-background"
               className="opacity-10 absolute max-w-52"
             />
             {/* WEATHER ICON */}
-            <img src="/images/01.svg" alt="weather-icon" style={{ height: 300, width: 300 }}/>
+            <img src="/images/animated/01.svg" alt="weather-icon" style={{ height: 300, width: 300 }}/>
           </div>
 
           <div className="flex flex-col items-center justify-between flex-grow pt-6">
