@@ -1,8 +1,7 @@
 export default [{
-
   'date': '10/27/2023',
   'weather_title': 'Rain',
-  'weather_icon': '10n',
+  'weather_icon': '10',
   'temp_min': 20,
   'temp_max': 20,
   'air_pressure': 1017,
@@ -14,7 +13,7 @@ export default [{
   {
     'date': '10/28/2023',
     'weather_title': 'Rain',
-    'weather_icon': '10n',
+    'weather_icon': '12',
     'temp_min': 21,
     'temp_max': 21,
     'air_pressure': 1018,
@@ -26,7 +25,7 @@ export default [{
   {
     'date': '10/29/2023',
     'weather_title': 'Clouds',
-    'weather_icon': '04n',
+    'weather_icon': '01',
     'temp_min': 21,
     'temp_max': 21,
     'air_pressure': 1019,
@@ -38,7 +37,7 @@ export default [{
   {
     'date': '10/30/2023',
     'weather_title': 'Rain',
-    'weather_icon': '10n',
+    'weather_icon': '10',
     'temp_min': 21,
     'temp_max': 21,
     'air_pressure': 1020,
@@ -50,7 +49,7 @@ export default [{
   {
     'date': '10/31/2023',
     'weather_title': 'Clouds',
-    'weather_icon': '04n',
+    'weather_icon': '04',
     'temp_min': 21,
     'temp_max': 21,
     'air_pressure': 1020,

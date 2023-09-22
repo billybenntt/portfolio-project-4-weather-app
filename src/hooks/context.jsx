@@ -1,13 +1,19 @@
 import { useEffect, useReducer, createContext, useContext } from 'react'
 import reducerFunction from './reducer.jsx'
-import defaultData from '../data/apiMockData.js'
+import apiMockData from '../data/apiMockData.js'
+import { processData } from '../utilities/processData.js'
+
+
 
 // Initial Reducer State
 const initialState = {
   isLoading: false,
   isSideBarOpen: false,
-  weatherData: defaultData
+  weatherData: processData(apiMockData.list)
 }
+
+
+
 
 const AppContext = createContext(undefined)
 
@@ -22,14 +28,13 @@ function AppProvider ({ children }) {
     dispatch({ type: 'TOGGLE_SIDEBAR' })
   }
 
-  const fetchWeather = () => {
+  const fetchData = () => {
     dispatch({ type: 'SET_LOADING' })
 
-
-
-
-
   }
+
+
+
 
   // FETCH DATA
   useEffect(() => {

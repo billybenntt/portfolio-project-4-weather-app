@@ -1,28 +1,25 @@
 import SmallCard from './SmallCard.jsx'
 import LargeCard from './LargeCard.jsx'
-import { useGlobalContext } from '../hooks/context.jsx'
 import { nanoid } from 'nanoid'
-
-import forecast from '../data/constants.jsx'
+import { useGlobalContext } from '../hooks/context.jsx'
 
 function MainContent () {
 
   const { weatherData } = useGlobalContext()
+  const [todayForecast] = weatherData
 
 
-
-  const forecastList = forecast.map((item) => {
-    const { dayTitle, img } = item
+  const forecastList = weatherData.map((item) => {
+    const { weather_title, weather_icon, temp_min, temp_max } = item
 
     const id = nanoid()
-
     return (
       <SmallCard
         key={id}
-        dayTitle={dayTitle}
-        img={img}
-        max={20}
-        min={12}
+        weather_title={weather_title}
+        weather_icon={weather_icon}
+        temp_min={temp_min}
+        temp_max={temp_max}
         temp="C"
       />
     )
@@ -61,7 +58,7 @@ function MainContent () {
           </LargeCard>
 
           {/*HUMIDITY*/}
-          <LargeCard title="Humidity" num={84} desc="%">
+          <LargeCard title="Humidity" num={todayForecast.air_humidity} desc="%">
             <div className="self-stretch text-gray-250 text-xs space-y-1">
               <div className="flex justify-between space-x-5 items-center px-1">
                 <p>0</p>
@@ -71,7 +68,7 @@ function MainContent () {
               <div className="w-full h-2 bg-gray-150 rounded-full overflow-hidden">
                 <div
                   className="bg-[#FFEC65] h-2"
-                  style={{ width: '84%' }}
+                  style={{ width: `${todayForecast.air_humidity}%` }}
                 ></div>
               </div>
               <p className="text-right">%</p>
