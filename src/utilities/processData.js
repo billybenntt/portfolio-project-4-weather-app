@@ -1,4 +1,4 @@
-export const processData = (list) => {
+export const processData = ({ list }) => {
   const all_records = []
   list.map(({ dt, main, wind, visibility, weather }) => {
 

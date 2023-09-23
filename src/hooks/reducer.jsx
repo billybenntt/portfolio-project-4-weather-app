@@ -11,7 +11,7 @@ function reducer (oldState, action) {
   }
 
   if (type === 'SET_WEATHER') {
-    return { ...oldState}
+    return { ...oldState, isLoading: false}
   }
 
 

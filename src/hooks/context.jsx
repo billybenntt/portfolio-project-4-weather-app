@@ -3,17 +3,12 @@ import reducerFunction from './reducer.jsx'
 import apiMockData from '../data/apiMockData.js'
 import { processData } from '../utilities/processData.js'
 
-
-
 // Initial Reducer State
 const initialState = {
   isLoading: false,
   isSideBarOpen: false,
-  weatherData: processData(apiMockData.list)
+  weatherData: processData(apiMockData)
 }
-
-
-
 
 const AppContext = createContext(undefined)
 
@@ -28,13 +23,17 @@ function AppProvider ({ children }) {
     dispatch({ type: 'TOGGLE_SIDEBAR' })
   }
 
-  const fetchData = () => {
+  const fetchData = async () => {
     dispatch({ type: 'SET_LOADING' })
 
+    try {
+      dispatch({ type: 'SET_WEATHER' })
+
+    } catch (e) {
+
+    }
+
   }
-
-
-
 
   // FETCH DATA
   useEffect(() => {
