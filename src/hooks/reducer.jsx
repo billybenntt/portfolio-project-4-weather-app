@@ -11,12 +11,8 @@ function reducer (oldState, action) {
   }
 
   if (type === 'SET_WEATHER') {
-    return { ...oldState, isLoading: false}
+    return { ...oldState, isLoading: false, weatherData: payload }
   }
-
-
-
-
 
 
 

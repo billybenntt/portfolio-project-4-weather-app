@@ -6,7 +6,8 @@ function SideBar () {
   const { isSideBarOpen, toggleSidebar, weatherData } = useGlobalContext()
 
   const [todayForecast] = weatherData
-  const { weather_title, weather_icon, temp_min, temp_max, air_humidity } = todayForecast
+
+  console.log(todayForecast)
 
   return (
     <div className="flex flex-col min-h-screen bg-darkblue w-full lg:w-1/3 p-7 lg:p-4 xl:p-7 space-y-10 overflow-x-hidden">
@@ -33,16 +34,16 @@ function SideBar () {
               className="opacity-10 absolute max-w-52"
             />
             {/* WEATHER ICON */}
-            <img src={`/images/animated/${weather_icon}.svg`} alt="weather-icon" style={{ height: 300, width: 300 }}/>
+            <img src={`/images/animated/${todayForecast.weather_icon}.svg`} alt="weather-icon" style={{ height: 300, width: 300 }}/>
           </div>
 
           <div className="flex flex-col items-center justify-between flex-grow pt-6">
             <h1 className="text-gray-150 text-[144px] font-medium">
               15<span className="text-5xl text-gray-250">&deg;C</span>
             </h1>
-            <h3 className="font-semibold text-4xl text-gray-250">{weather_title}</h3>
+            <h3 className="font-semibold text-4xl text-gray-250">{todayForecast.weather_title}</h3>
             <div className="flex flex-col items-center text-center text-gray-350 text-lg space-y-5">
-              <p>Today &bull; Fri 5 Jun</p>
+              <p>Today &bull; {todayForecast.date}</p>
               <p>
                 <i className="fas fa-map-marker-alt"></i> Helsinki
               </p>

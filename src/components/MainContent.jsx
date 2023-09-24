@@ -7,7 +7,6 @@ function MainContent () {
 
   const { weatherData } = useGlobalContext()
   const [todayForecast] = weatherData
-  const {air_humidity, wind_speed} = todayForecast
 
 
   const forecastList = weatherData.map((item) => {
@@ -49,7 +48,7 @@ function MainContent () {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 justify-center">
 
           {/*WIND STATUS*/}
-          <LargeCard title="Wind Status" num={wind_speed} desc="mph">
+          <LargeCard title="Wind Status" num={todayForecast.wind_speed} desc="mph">
             <div className="flex justify-between space-x-5 items-center">
               <div className="bg-gray-500 rounded-full w-[30px] h-[30px] flex justify-center items-center">
                 <i className="fa fa-location-arrow" ></i>
@@ -59,7 +58,7 @@ function MainContent () {
           </LargeCard>
 
           {/*HUMIDITY*/}
-          <LargeCard title="Humidity" num={air_humidity} desc="%">
+          <LargeCard title="Humidity" num={todayForecast.air_humidity} desc="%">
             <div className="self-stretch text-gray-250 text-xs space-y-1">
               <div className="flex justify-between space-x-5 items-center px-1">
                 <p>0</p>
@@ -69,7 +68,7 @@ function MainContent () {
               <div className="w-full h-2 bg-gray-150 rounded-full overflow-hidden">
                 <div
                   className="bg-[#FFEC65] h-2"
-                  style={{ width: `${air_humidity}%` }}
+                  style={{ width: `${todayForecast.air_humidity}%` }}
                 ></div>
               </div>
               <p className="text-right">%</p>
@@ -77,10 +76,10 @@ function MainContent () {
           </LargeCard>
 
           {/*VISIBILITY*/}
-          <LargeCard title="Visibility" num={6.4} desc=" miles"/>
+          <LargeCard title="Visibility" num={todayForecast.visibility} desc=" miles"/>
 
           {/*AIR PRESSURE*/}
-          <LargeCard title="Air Pressure" num={998} desc=" mb"/>
+          <LargeCard title="Air Pressure" num={todayForecast.air_pressure} desc=" mb"/>
         </div>
       </div>
     </div>
