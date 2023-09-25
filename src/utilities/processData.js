@@ -1,17 +1,18 @@
 export const processData = ({ list }) => {
   const all_records = []
 
+  const firstRecord = new Date(list[0].dt * 1000).getHours()
+
   list.map(({ dt, main, wind, visibility, weather }) => {
 
     // new object
     const packed_data = {}
     const date = new Date(dt * 1000)
 
-
-    console.log(date)
     // Grab last record
-    if (date.getHours() === 23) {
+    if (date.getHours() === firstRecord) {
       packed_data.date = date.toLocaleDateString()
+      packed_data.time = date.getHours()
       packed_data.weather_title = [...weather][0]['description']
       packed_data.weather_icon = weather[0].icon[0] + weather[0].icon[1]
       packed_data.temp_min = Math.floor((main['temp_min'] - 273.15))
@@ -24,8 +25,8 @@ export const processData = ({ list }) => {
       all_records.push(packed_data)
     }
 
-
   })
 
+  console.log(all_records)
   return all_records
 }
