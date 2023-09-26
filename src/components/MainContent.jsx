@@ -12,6 +12,8 @@ function MainContent () {
   const forecastList = weatherData.map((item) => {
     const { weather_title, weather_icon, temp_min, temp_max } = item
 
+
+
     const id = nanoid()
     return (
       <SmallCard

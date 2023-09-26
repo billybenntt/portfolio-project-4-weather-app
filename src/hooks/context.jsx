@@ -31,6 +31,8 @@ function AppProvider ({ children }) {
       const response = await fetch(url)
       const data = await response.json()
       const weather_data = processData(data)
+      console.log(weather_data)
+
       dispatch({ type: 'SET_WEATHER', payload: weather_data })
     } catch (e) {
 
@@ -41,7 +43,7 @@ function AppProvider ({ children }) {
   // FETCH DATA
   useEffect(() => {
     fetchData(baseUrl).then()
-  }, [state.currentLocation])
+  }, [])
 
   return (
     <AppContext.Provider value={{ ...state, toggleSidebar }}>
