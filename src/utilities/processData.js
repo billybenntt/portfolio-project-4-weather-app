@@ -7,6 +7,8 @@ export const processData = ({ list, city }) => {
     // new object
     const daily_forecast = {}
     const date = new Date(dt * 1000)
+
+
     // Grab last record
     if (date.getHours() === firstRecord) {
       daily_forecast.date = date.toLocaleDateString()

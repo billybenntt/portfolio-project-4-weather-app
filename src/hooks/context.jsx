@@ -20,9 +20,12 @@ function AppProvider ({ children }) {
   // REDUCER INIT
   const [state, dispatch] = useReducer(reducerFunction, initialState, undefined)
 
-
   const toggleSidebar = () => {
     dispatch({ type: 'TOGGLE_SIDEBAR' })
+  }
+
+  const handleLocation = () => {
+
   }
 
   const fetchData = async (url) => {
@@ -32,7 +35,6 @@ function AppProvider ({ children }) {
       const data = await response.json()
       const weather_data = processData(data)
       console.log(weather_data)
-
       dispatch({ type: 'SET_WEATHER', payload: weather_data })
     } catch (e) {
 
@@ -46,7 +48,7 @@ function AppProvider ({ children }) {
   }, [])
 
   return (
-    <AppContext.Provider value={{ ...state, toggleSidebar }}>
+    <AppContext.Provider value={{ ...state, toggleSidebar, handleLocation }}>
       {children}
     </AppContext.Provider>
   )

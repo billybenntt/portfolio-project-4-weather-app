@@ -8,16 +8,22 @@ function MainContent () {
   const { weatherData } = useGlobalContext()
   const [todayForecast] = weatherData
 
+  const forecastList = weatherData.map((item, index) => {
+    let { weather_title, date, weather_icon, temp_min, temp_max } = item
 
-  const forecastList = weatherData.map((item) => {
-    const { weather_title, weather_icon, temp_min, temp_max } = item
+    if (index === 0) {
+      date = 'Today'
+    }
 
-
+      if (index === 1) {
+      date = 'Tomorrow'
+    }
 
     const id = nanoid()
     return (
       <SmallCard
         key={id}
+        date={date}
         weather_title={weather_title}
         weather_icon={weather_icon}
         temp_min={temp_min}
@@ -46,14 +52,14 @@ function MainContent () {
 
       {/*HIGHLIGHTS */}
       <div className="my-10">
-        <h3 className="text-2xl font-bold mb-5">Today Highlights</h3>
+        <h3 className="text-2xl font-bold mb-5">Today's Highlights</h3>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 justify-center">
 
           {/*WIND STATUS*/}
           <LargeCard title="Wind Status" num={todayForecast.wind_speed} desc="mph">
             <div className="flex justify-between space-x-5 items-center">
               <div className="bg-gray-500 rounded-full w-[30px] h-[30px] flex justify-center items-center">
-                <i className="fa fa-location-arrow" ></i>
+                <i className="fa fa-location-arrow rotate-45"></i>
               </div>
               <p className="text-gray-150 text-sm">WSW</p>
             </div>
