@@ -5,7 +5,7 @@ import { useGlobalContext } from '../hooks/context.jsx'
 
 function MainContent () {
 
-  const { weatherData } = useGlobalContext()
+  const { weatherData, conversionType, handleConversion } = useGlobalContext()
   const [todayForecast] = weatherData
 
   const forecastList = weatherData.map((item, index) => {
@@ -14,11 +14,9 @@ function MainContent () {
     if (index === 0) {
       date = 'Today'
     }
-
-      if (index === 1) {
+    if (index === 1) {
       date = 'Tomorrow'
     }
-
     const id = nanoid()
     return (
       <SmallCard
@@ -28,7 +26,7 @@ function MainContent () {
         weather_icon={weather_icon}
         temp_min={temp_min}
         temp_max={temp_max}
-        temp="C"
+        temp={conversionType}
       />
     )
   })
@@ -37,10 +35,10 @@ function MainContent () {
     <div className="text-gray-150 p-10 flex-grow">
       {/*TEMP SWITCH*/}
       <div className="space-x-3 text-right">
-        <button className="bg-gray-150 rounded-full w-10 h-10 text -darkblue font-bold text-xl">
+        <button className="bg-[#585676] rounded-full w-10 h-10  font-bold text-xl" onClick={() => handleConversion('C')}>
           &deg;C
         </button>
-        <button className="bg-[#585676] rounded-full w-10 h-10 text-gray-150 font-bold text-xl">
+        <button className="bg-[#585676] rounded-full w-10 h-10  font-bold text-xl" onClick={() => handleConversion('F')}>
           &deg;F
         </button>
       </div>

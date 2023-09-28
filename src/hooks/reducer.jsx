@@ -14,8 +14,10 @@ function reducer (oldState, action) {
     return { ...oldState, isLoading: false, weatherData: payload }
   }
 
+  if (type === 'SET_CONVERSION') {
 
-
+    return { ...oldState, conversionType: payload}
+  }
 
   // DEFAULT
   throw new Error('NO MATCHING ACTION TYPE')

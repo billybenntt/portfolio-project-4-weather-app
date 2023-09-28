@@ -6,7 +6,7 @@ function SideBar () {
   const { isSideBarOpen, toggleSidebar, weatherData } = useGlobalContext()
   const [todayForecast] = weatherData
 
-  console.log(todayForecast)
+
 
   return (
     <div className="flex flex-col min-h-screen bg-darkblue w-full lg:w-1/3 p-7 lg:p-4 xl:p-7 space-y-10 overflow-x-hidden">
@@ -38,7 +38,7 @@ function SideBar () {
 
           <div className="flex flex-col items-center justify-between flex-grow pt-6">
             <h1 className="text-gray-150 text-[144px] font-medium">
-              15<span className="text-5xl text-gray-250">&deg;C</span>
+              {todayForecast.current_temp}<span className="text-5xl text-gray-250">&deg;{todayForecast.conversionType}</span>
             </h1>
             <h3 className="font-semibold text-4xl text-gray-250 capitalize">{todayForecast.weather_title}</h3>
             <div className="flex flex-col items-center text-center text-gray-350 text-lg space-y-2">

@@ -10,7 +10,8 @@ const initialState = {
   isLoading: false,
   isSideBarOpen: false,
   weatherData: processData(apiMockData),
-  currentLocation: ''
+  currentLocation: '',
+  conversionType: 'F'
 }
 
 const AppContext = createContext(undefined)
@@ -33,22 +34,24 @@ function AppProvider ({ children }) {
     try {
       const response = await fetch(url)
       const data = await response.json()
-      const weather_data = processData(data)
+      const weather_data = processData(data, state.conversionType)
       console.log(weather_data)
       dispatch({ type: 'SET_WEATHER', payload: weather_data })
     } catch (e) {
-
     }
+  }
 
+  const handleConversion = (newConversion) => {
+    dispatch({ type: 'SET_CONVERSION', payload: newConversion })
   }
 
   // FETCH DATA
   useEffect(() => {
     fetchData(baseUrl).then()
-  }, [])
+  }, [state.conversionType])
 
   return (
-    <AppContext.Provider value={{ ...state, toggleSidebar, handleLocation }}>
+    <AppContext.Provider value={{ ...state, toggleSidebar, handleLocation, handleConversion }}>
       {children}
     </AppContext.Provider>
   )
