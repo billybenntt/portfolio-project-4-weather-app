@@ -1,16 +1,18 @@
 import { useEffect, useReducer, createContext, useContext } from 'react'
 import reducerFunction from './reducer.jsx'
 import apiMockData from '../data/apiMockData.js'
-import { processData } from '../utilities/processData.js'
+import { processApiData } from '../utilities/processApiData.js'
+import { fetchUserLocation } from '../utilities/fetchUserLocation.js'
 
-const baseUrl = 'http://localhost:3030/data/2.5/forecast?q=taipei&appid=81dd99425645fc4a51c4b1a1ef6118d2'
+const baseUrl = `http://localhost:3030/data/2.5/forecast?appid=81dd99425645fc4a51c4b1a1ef6118d2&q=`
 
 // Initial Reducer State
 const initialState = {
+  isTextLocation: true,
   isLoading: false,
   isSideBarOpen: false,
-  weatherData: processData(apiMockData),
-  currentLocation: '',
+  weatherData: processApiData(apiMockData),
+  currentLocation: 'Taipei',
   conversionType: 'F'
 }
 
@@ -26,7 +28,7 @@ function AppProvider ({ children }) {
   }
 
   const handleLocation = () => {
-
+    fetchUserLocation()
   }
 
   const fetchData = async (url) => {
@@ -34,7 +36,7 @@ function AppProvider ({ children }) {
     try {
       const response = await fetch(url)
       const data = await response.json()
-      const weather_data = processData(data, state.conversionType)
+      const weather_data = processApiData(data, state.conversionType)
       console.log(weather_data)
       dispatch({ type: 'SET_WEATHER', payload: weather_data })
     } catch (e) {
@@ -47,7 +49,11 @@ function AppProvider ({ children }) {
 
   // FETCH DATA
   useEffect(() => {
-    fetchData(baseUrl).then()
+
+    if (state.isTextLocation) {
+      fetchData(baseUrl + state.currentLocation).then()
+    }
+
   }, [state.conversionType])
 
   return (

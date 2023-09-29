@@ -1,11 +1,12 @@
 import { convertTemperature } from './convertTemperature.js'
 
-export const processData = (data, conversionType) => {
+export const processApiData = (data, conversionType) => {
 
-  const { list, city } = data
   const weekly_forecast = []
-
+  const { list, city } = data
   const firstRecord = new Date(list[0].dt * 1000).getHours()
+
+
   list.map(({ dt, main, wind, visibility, weather }) => {
 
     // new object
