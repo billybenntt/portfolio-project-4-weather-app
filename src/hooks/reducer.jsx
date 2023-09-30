@@ -15,8 +15,15 @@ function reducer (oldState, action) {
   }
 
   if (type === 'SET_CONVERSION') {
+    return { ...oldState, conversionType: payload }
+  }
 
-    return { ...oldState, conversionType: payload}
+  if (type === 'SET_COORDINATES') {
+    return { ...oldState }
+  }
+
+  if (type === 'SET_LOCATION') {
+    return { ...oldState }
   }
 
   // DEFAULT

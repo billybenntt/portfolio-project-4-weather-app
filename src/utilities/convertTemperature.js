@@ -1,8 +1,8 @@
-export const convertTemperature = (kelvin, type) => {
-  if (type === 'C') {
-    return Math.floor(kelvin - 273.15)
+export const convertTemperature = (inputTemp, targetUnit) => {
+  if (targetUnit === 'C') {
+    return Math.floor(inputTemp - 273.15)
   }
-  if (type === 'F') {
-    return Math.floor(1.8 * (kelvin - 273.15) + 32)
+  if (targetUnit === 'F') {
+    return Math.floor(1.8 * (inputTemp - 273.15) + 32)
   } else return 0
 }
