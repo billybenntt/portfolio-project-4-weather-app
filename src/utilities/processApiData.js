@@ -1,6 +1,6 @@
 import { convertTemperature } from './convertTemperature.js'
 
-export const processApiData = (data, conversionType) => {
+export const processApiData = (data, tempUnit) => {
 
   const weekly_forecast = []
   const { list, city } = data
@@ -16,13 +16,13 @@ export const processApiData = (data, conversionType) => {
     if (date.getHours() === firstRecord) {
       daily_forecast.date = date.toLocaleDateString()
       daily_forecast.location = city.name
-      daily_forecast.conversionType = conversionType
-      daily_forecast.current_temp = convertTemperature(main['temp'],conversionType)
+      daily_forecast.tempUnit = tempUnit
+      daily_forecast.current_temp = convertTemperature(main['temp'],tempUnit)
       daily_forecast.time = date.getHours()
       daily_forecast.weather_title = [...weather][0]['description']
       daily_forecast.weather_icon = weather[0].icon[0] + weather[0].icon[1]
-      daily_forecast.temp_min =convertTemperature(main['temp_min'],conversionType)
-      daily_forecast.temp_max = convertTemperature(main['temp_max'],conversionType)
+      daily_forecast.temp_min =convertTemperature(main['temp_min'],tempUnit)
+      daily_forecast.temp_max = convertTemperature(main['temp_max'],tempUnit)
       daily_forecast.air_pressure = main['pressure']
       daily_forecast.air_humidity = main['humidity']
       daily_forecast.wind_direction = wind['deg']

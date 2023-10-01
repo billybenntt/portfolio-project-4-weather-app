@@ -5,7 +5,7 @@ import { useGlobalContext } from '../hooks/context.jsx'
 
 function MainContent () {
 
-  const { weatherData, conversionType, handleConversion } = useGlobalContext()
+  const { weatherData, tempUnit, handleConversion } = useGlobalContext()
   const [todayForecast] = weatherData
 
   const forecastList = weatherData.map((item, index) => {
@@ -26,7 +26,7 @@ function MainContent () {
         weather_icon={weather_icon}
         temp_min={temp_min}
         temp_max={temp_max}
-        temp={conversionType}
+        temp={tempUnit}
       />
     )
   })

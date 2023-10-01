@@ -11,19 +11,21 @@ function reducer (oldState, action) {
   }
 
   if (type === 'SET_WEATHER') {
-    return { ...oldState, isLoading: false, weatherData: payload }
+
+    return { ...oldState, isLoading: false, weatherData: payload}
   }
 
   if (type === 'SET_CONVERSION') {
-    return { ...oldState, conversionType: payload }
+    return { ...oldState, tempUnit: payload }
   }
 
   if (type === 'SET_COORDINATES') {
-    return { ...oldState }
+    const { latitude, longitude } = payload
+    return { ...oldState, isTextLocation: false, latitude, longitude }
   }
 
   if (type === 'SET_LOCATION') {
-    return { ...oldState }
+    return { ...oldState, isTextLocation: true, location: payload }
   }
 
   // DEFAULT

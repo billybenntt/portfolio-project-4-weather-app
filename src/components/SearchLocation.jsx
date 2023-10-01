@@ -2,7 +2,7 @@ import { useGlobalContext } from '../hooks/context.jsx'
 
 function SearchLocation () {
 
-  const { toggleSidebar } = useGlobalContext()
+  const { toggleSidebar, handleLocation } = useGlobalContext()
 
   return (
     <div className="text-gray-150">
@@ -30,12 +30,12 @@ function SearchLocation () {
       {/*PREDEFINED LOCATIONS*/}
 
       <div className="mt-20">
-        <button className="hover:border border-gray-250 px-4 py-6 w-full flex justify-between">
+        <button className="hover:border border-gray-250 px-4 py-6 w-full flex justify-between" onClick={() => handleLocation('london')}>
           <p>London</p>
           <i className="fa fa-chevron-right text-gray-350"></i>
         </button>
 
-        <button className="hover:border border-gray-250 px-4 py-6 w-full flex justify-between">
+        <button className="hover:border border-gray-250 px-4 py-6 w-full flex justify-between" onClick={() => handleLocation('taipei')}>
           <p>Taipei</p>
           <i className="fa fa-chevron-right text-gray-350"></i>
         </button>

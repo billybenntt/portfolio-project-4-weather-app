@@ -8,15 +8,14 @@ const baseUrl = `http://localhost:3030/data/2.5/forecast?appid=${import.meta.env
 
 // Initial Reducer State
 const initialState = {
-  isTextLocation: false,
+  isTextLocation: true,
   isLoading: false,
   isSideBarOpen: false,
   weatherData: processApiData(apiMockData),
-  currentTextLocation: 'Taipei',
-  currentNumLocationLat: 80.0123,
-  currentNumLocationLon: -34.034,
-  conversionType: 'F'
-
+  location: 'beijing',
+  latitude: 0.0,
+  longitude: 0.0,
+  tempUnit: 'C'
 }
 
 const AppContext = createContext(undefined)
@@ -30,10 +29,16 @@ function AppProvider ({ children }) {
     dispatch({ type: 'TOGGLE_SIDEBAR' })
   }
 
-  const handleLocation = async () => {
+  const handleCoordinates = async () => {
     const data = await fetchUserLocation()
-    console.log(data)
+    dispatch({ type: 'SET_COORDINATES', payload: data })
+  }
 
+  const handleLocation = (newLocation) => {
+    console.log(newLocation)
+
+    dispatch({ type: 'SET_LOCATION', payload: newLocation })
+    dispatch({ type: 'TOGGLE_SIDEBAR' })
   }
 
   const fetchData = async (url) => {
@@ -41,7 +46,7 @@ function AppProvider ({ children }) {
     try {
       const response = await fetch(url)
       const data = await response.json()
-      const weather_data = processApiData(data, state.conversionType)
+      const weather_data = processApiData(data, state.tempUnit)
       console.log(weather_data)
       dispatch({ type: 'SET_WEATHER', payload: weather_data })
     } catch (e) {
@@ -54,17 +59,18 @@ function AppProvider ({ children }) {
 
   // FETCH DATA
   useEffect(() => {
-
     if (state.isTextLocation) {
-      fetchData(`${baseUrl}q=${state.currentTextLocation}`).then()
+      fetchData(`${baseUrl}q=${state.location}`).then()
     } else {
-      fetchData(`${baseUrl}lat=${state.currentNumLocationLat}&lon=${state.currentNumLocationLon}`).then()
+      fetchData(`${baseUrl}lat=${state.latitude}&lon=${state.longitude}`).then()
     }
-
-  }, [state.conversionType])
+  }, [state.isTextLocation, state.location, state.tempUnit])
 
   return (
-    <AppContext.Provider value={{ ...state, toggleSidebar, handleLocation, handleConversion }}>
+    <AppContext.Provider value={{
+      ...state, toggleSidebar,
+      handleCoordinates, handleConversion, handleLocation
+    }}>
       {children}
     </AppContext.Provider>
   )

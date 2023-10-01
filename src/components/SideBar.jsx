@@ -3,8 +3,9 @@ import { useGlobalContext } from '../hooks/context.jsx'
 
 function SideBar () {
 
-  const { isSideBarOpen, toggleSidebar, weatherData, handleLocation } = useGlobalContext()
+  const { isSideBarOpen, toggleSidebar, weatherData, handleCoordinates} = useGlobalContext()
   const [todayForecast] = weatherData
+
 
   return (
     <div className="flex flex-col min-h-screen bg-darkblue w-full lg:w-1/3 p-7 lg:p-4 xl:p-7 space-y-10 overflow-x-hidden">
@@ -19,7 +20,7 @@ function SideBar () {
               Search for places
             </button>
             <button className="static z-10 px-4 py-2 text bg-[#6E707A] hover:bg-[#6E707A]/70 text-gray-150 rounded-full shadow-lg"
-              onClick={handleLocation}>
+              onClick={handleCoordinates}>
               <i className="fa fa-map-marker"></i>
             </button>
           </div>
@@ -37,7 +38,7 @@ function SideBar () {
 
           <div className="flex flex-col items-center justify-between flex-grow pt-6">
             <h1 className="text-gray-150 text-[144px] font-medium">
-              {todayForecast.current_temp}<span className="text-5xl text-gray-250">&deg;{todayForecast.conversionType}</span>
+              {todayForecast.current_temp}<span className="text-5xl text-gray-250">&deg;{todayForecast.tempUnit}</span>
             </h1>
             <h3 className="font-semibold text-4xl text-gray-250 capitalize">{todayForecast.weather_title}</h3>
             <div className="flex flex-col items-center text-center text-gray-350 text-lg space-y-2">
