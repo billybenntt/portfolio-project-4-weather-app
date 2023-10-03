@@ -6,6 +6,8 @@ import { fetchUserLocation } from '../utilities/fetchUserLocation.js'
 
 const baseUrl = `http://localhost:3030/data/2.5/forecast?appid=${import.meta.env.VITE_APP_ID}&`
 
+
+
 // Initial Reducer State
 const initialState = {
   isTextLocation: true,
@@ -18,12 +20,18 @@ const initialState = {
   tempUnit: 'C'
 }
 
+
+
 const AppContext = createContext(undefined)
 
 function AppProvider ({ children }) {
 
   // REDUCER INIT
   const [state, dispatch] = useReducer(reducerFunction, initialState, undefined)
+
+
+
+  // HANDLER FUNCTIONS
 
   const toggleSidebar = () => {
     dispatch({ type: 'TOGGLE_SIDEBAR' })
@@ -35,8 +43,6 @@ function AppProvider ({ children }) {
   }
 
   const handleLocation = (newLocation) => {
-    console.log(newLocation)
-
     dispatch({ type: 'SET_LOCATION', payload: newLocation })
     dispatch({ type: 'TOGGLE_SIDEBAR' })
   }
@@ -57,6 +63,7 @@ function AppProvider ({ children }) {
     dispatch({ type: 'SET_CONVERSION', payload: newConversion })
   }
 
+
   // FETCH DATA
   useEffect(() => {
     if (state.isTextLocation) {
@@ -65,6 +72,8 @@ function AppProvider ({ children }) {
       fetchData(`${baseUrl}lat=${state.latitude}&lon=${state.longitude}`).then()
     }
   }, [state.isTextLocation, state.location, state.tempUnit])
+
+
 
   return (
     <AppContext.Provider value={{

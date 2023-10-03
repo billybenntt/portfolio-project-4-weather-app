@@ -8,6 +8,8 @@ function MainContent () {
   const { weatherData, tempUnit, handleConversion } = useGlobalContext()
   const [todayForecast] = weatherData
 
+  console.log(todayForecast)
+
   const forecastList = weatherData.map((item, index) => {
     let { weather_title, date, weather_icon, temp_min, temp_max } = item
 
@@ -56,8 +58,8 @@ function MainContent () {
           {/*WIND STATUS*/}
           <LargeCard title="Wind Status" num={todayForecast.wind_speed} desc="mph">
             <div className="flex justify-between space-x-5 items-center">
-              <div className="bg-gray-500 rounded-full w-[30px] h-[30px] flex justify-center items-center">
-                <i className="fa fa-location-arrow rotate-45"></i>
+              <div className="bg-gray-500 rounded-full w-[30px] h-[30px] flex justify-center items-center rotate-[315deg]">
+                <i className={`fa fa-location-arrow rotate-[${todayForecast.wind_direction}deg]`}></i>
               </div>
               <p className="text-gray-150 text-sm">WSW</p>
             </div>

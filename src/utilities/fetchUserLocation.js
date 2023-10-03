@@ -5,9 +5,6 @@ const options = {
 }
 
 
-function error () {
-  alert('Sorry, no position available.')
-}
 
 export const fetchUserLocation = () => {
   return new Promise((resolve, reject) => {
@@ -22,6 +19,7 @@ export const fetchUserLocation = () => {
       },
       (err) => {
         reject(err)
+       alert('Sorry, no position available.')
       },
       options
     )
