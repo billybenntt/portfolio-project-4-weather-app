@@ -7,7 +7,6 @@ import { fetchUserLocation } from '../utilities/fetchUserLocation.js'
 const baseUrl = `http://localhost:3030/data/2.5/forecast?appid=${import.meta.env.VITE_APP_ID}&`
 
 
-
 // Initial Reducer State
 const initialState = {
   isTextLocation: true,
