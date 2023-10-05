@@ -5,10 +5,8 @@ const options = {
 }
 
 
-
 export const fetchUserLocation = () => {
   return new Promise((resolve, reject) => {
-
     navigator.geolocation.getCurrentPosition(
       (position) => {
         const location = {

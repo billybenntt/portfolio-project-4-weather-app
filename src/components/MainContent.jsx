@@ -8,8 +8,7 @@ function MainContent () {
   const { weatherData, tempUnit, handleConversion } = useGlobalContext()
   const [todayForecast] = weatherData
 
-  const isActive = 'bg-[#585676]'
-
+  const isActive = tempUnit === 'F' ? 'bg-[#585676]' : ''
 
   console.log(todayForecast)
 
@@ -40,10 +39,10 @@ function MainContent () {
     <div className="text-gray-150 p-10 flex-grow">
       {/*TEMP SWITCH*/}
       <div className="space-x-3 text-right">
-        <button className={`rounded-full w-10 h-10 ${isActive} font-bold text-xl`} onClick={() => handleConversion('C')}>
+        <button className={`rounded-full w-10 h-10 ${!isActive} font-bold text-xl`} onClick={() => handleConversion('C')}>
           &deg;C
         </button>
-        <button className={`rounded-full w-10 h-10  font-bold text-xl`} onClick={() => handleConversion('F')}>
+        <button className={`rounded-full w-10 h-10 font-bold text-xl ${isActive}`} onClick={() => handleConversion('F')}>
           &deg;F
         </button>
       </div>
@@ -62,9 +61,9 @@ function MainContent () {
           <LargeCard title="Wind Status" num={todayForecast.wind_speed} desc="mph">
             <div className="flex justify-between space-x-5 items-center">
               <div className="bg-gray-500 rounded-full w-[30px] h-[30px] flex justify-center items-center rotate-[315deg]">
-                <i className={`fa fa-location-arrow rotate-[${todayForecast.wind_direction}deg]`}></i>
+                <i className={`fa fa-location-arrow rotate-[${todayForecast.wind_degrees}deg]`}></i>
               </div>
-              <p className="text-gray-150 text-sm">WSW</p>
+              <p className="text-gray-150 text-sm">{todayForecast.wind_direction}</p>
             </div>
           </LargeCard>
 

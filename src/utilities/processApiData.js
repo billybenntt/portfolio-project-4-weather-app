@@ -1,5 +1,5 @@
 import { convertTemperature } from './convertTemperature.js'
-
+import { convertWindDegrees } from './convertWindDegrees.js'
 export const processApiData = (data, tempUnit) => {
 
   const weekly_forecast = []
@@ -25,7 +25,8 @@ export const processApiData = (data, tempUnit) => {
       daily_forecast.temp_max = convertTemperature(main['temp_max'],tempUnit)
       daily_forecast.air_pressure = main['pressure']
       daily_forecast.air_humidity = main['humidity']
-      daily_forecast.wind_direction = wind['deg']
+      daily_forecast.wind_degrees = wind['deg']
+      daily_forecast.wind_direction = convertWindDegrees(wind['deg'])
       daily_forecast.wind_speed = wind['speed']
       daily_forecast.visibility = Math.floor(visibility / 1609)
       weekly_forecast.push(daily_forecast)
