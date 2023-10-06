@@ -8,13 +8,10 @@ function MainContent () {
   const { weatherData, tempUnit, handleConversion } = useGlobalContext()
   const [todayForecast] = weatherData
 
-  const isActive = tempUnit === 'F' ? 'bg-[#585676]' : ''
 
-  console.log(todayForecast)
 
   const forecastList = weatherData.map((item, index) => {
     let { weather_title, date, weather_icon, temp_min, temp_max } = item
-
     if (index === 0) {
       date = 'Today'
     }
@@ -35,14 +32,18 @@ function MainContent () {
     )
   })
 
+
+  
   return (
     <div className="text-gray-150 p-10 flex-grow">
       {/*TEMP SWITCH*/}
       <div className="space-x-3 text-right">
-        <button className={`rounded-full w-10 h-10 ${!isActive} font-bold text-xl`} onClick={() => handleConversion('C')}>
+        <button className={`rounded-full w-10 h-10 ${tempUnit === 'C' ? 'bg-[#585676]' : ''} font-bold' +
+          ' text-xl`} onClick={() => handleConversion('C')}>
           &deg;C
         </button>
-        <button className={`rounded-full w-10 h-10 font-bold text-xl ${isActive}`} onClick={() => handleConversion('F')}>
+        <button className={`rounded-full w-10 h-10 font-bold text-xl ${tempUnit === 'F' ? 'bg-[#585676]' : ''}`}
+          onClick={() => handleConversion('F')}>
           &deg;F
         </button>
       </div>
