@@ -1,8 +1,11 @@
 import { useGlobalContext } from '../hooks/context.jsx'
+import { useState } from 'react'
 
 function SearchLocation () {
 
   const { toggleSidebar, handleLocation } = useGlobalContext()
+  const [location, setLocation] = useState('')
+
 
   return (
     <div className="text-gray-150">
@@ -19,10 +22,12 @@ function SearchLocation () {
       <div className="flex justify-between my-5 space-x-4">
         <input
           type="text"
+          value={location}
+          onChange={(e)=> setLocation(e.target.value)}
           className="border border-gray-150 bg-transparent p-3 flex-grow"
           placeholder="search location"
         />
-        <button className="bg-[#3C47E9] py-3 px-5 hover:bg-[#3C47E9]/70">
+        <button className="bg-[#3C47E9] py-3 px-5 hover:bg-[#3C47E9]/70" onClick={() => handleLocation(location)}>
           Search
         </button>
       </div>

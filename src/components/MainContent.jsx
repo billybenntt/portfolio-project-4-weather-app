@@ -1,13 +1,12 @@
+import { nanoid } from 'nanoid'
 import SmallCard from './SmallCard.jsx'
 import LargeCard from './LargeCard.jsx'
-import { nanoid } from 'nanoid'
 import { useGlobalContext } from '../hooks/context.jsx'
 
 function MainContent () {
 
   const { weatherData, tempUnit, handleConversion } = useGlobalContext()
   const [todayForecast] = weatherData
-
 
 
   const forecastList = weatherData.map((item, index) => {
@@ -33,7 +32,7 @@ function MainContent () {
   })
 
 
-  
+
   return (
     <div className="text-gray-150 p-10 flex-grow">
       {/*TEMP SWITCH*/}
