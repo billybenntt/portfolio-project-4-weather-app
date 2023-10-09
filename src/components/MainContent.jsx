@@ -11,12 +11,17 @@ function MainContent () {
 
   const forecastList = weatherData.map((item, index) => {
     let { weather_title, date, weather_icon, temp_min, temp_max } = item
+
+
+
     if (index === 0) {
       date = 'Today'
     }
     if (index === 1) {
       date = 'Tomorrow'
     }
+
+
     const id = nanoid()
     return (
       <SmallCard
