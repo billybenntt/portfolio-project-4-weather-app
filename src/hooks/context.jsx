@@ -1,8 +1,9 @@
 import { useEffect, useReducer, createContext, useContext } from 'react'
-import reducerFunction from './reducer.jsx'
-import apiMockData from '../data/apiMockData.js'
 import { processApiData } from '../utilities/processApiData.js'
 import { fetchUserLocation } from '../utilities/fetchUserLocation.js'
+import defaultData from '../data/defaultData.js'
+import reducerFunction from './reducer.jsx'
+
 
 const baseUrl = `http://localhost:3030/data/2.5/forecast?appid=${import.meta.env.VITE_APP_ID}&`
 // const baseUrl = `https://api.openweathermap.org/data/2.5/forecast?appid=${import.meta.env.VITE_APP_ID}&`
@@ -12,7 +13,7 @@ const initialState = {
   isTextLocation: true,
   isLoading: false,
   isSideBarOpen: false,
-  weatherData: processApiData(apiMockData),
+  weatherData: processApiData(defaultData),
   location: 'beijing',
   latitude: 0.0,
   longitude: 0.0,

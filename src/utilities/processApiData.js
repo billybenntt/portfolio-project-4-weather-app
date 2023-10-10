@@ -1,5 +1,9 @@
 import { convertTemperature } from './convertTemperature.js'
 import { convertWindDegrees } from './convertWindDegrees.js'
+import moment from 'moment'
+
+
+
 export const processApiData = (data, tempUnit) => {
 
   const weekly_forecast = []
@@ -14,7 +18,7 @@ export const processApiData = (data, tempUnit) => {
 
     // Grab the current time of each day.
     if (date.getHours() === firstRecord) {
-      daily_forecast.date = date.toLocaleDateString()
+      daily_forecast.date = moment(date).format("dddd Do")
       daily_forecast.location = city.name
       daily_forecast.tempUnit = tempUnit
       daily_forecast.current_temp = convertTemperature(main['temp'],tempUnit)
