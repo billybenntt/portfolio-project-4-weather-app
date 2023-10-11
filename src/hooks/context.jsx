@@ -6,7 +6,7 @@ import reducerFunction from './reducer.jsx'
 
 
 const baseUrl = `http://localhost:3030/data/2.5/forecast?appid=${import.meta.env.VITE_APP_ID}&`
-// const baseUrl = `https://api.openweathermap.org/data/2.5/forecast?appid=${import.meta.env.VITE_APP_ID}&`
+// const baseUrl = `${import.meta.env.VITE_APP_ENDPOINT}${import.meta.env.VITE_APP_ID}&`
 
 // Initial Reducer State
 const initialState = {
@@ -53,6 +53,7 @@ function AppProvider ({ children }) {
       localStorage.setItem('location', JSON.stringify(data))
       dispatch({ type: 'SET_WEATHER', payload: weather_data })
     } catch (e) {
+
     }
   }
 

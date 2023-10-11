@@ -91,7 +91,7 @@ function MainContent () {
           </LargeCard>
 
           {/*VISIBILITY*/}
-          <LargeCard title="Visibility" num={todayForecast.visibility} desc=" miles"/>
+          <LargeCard title="Cloudiness" num={todayForecast.visibility} desc=" %"/>
 
           {/*AIR PRESSURE*/}
           <LargeCard title="Air Pressure" num={todayForecast.air_pressure} desc=" mb"/>
