@@ -8,7 +8,7 @@ export const processApiData = (data, tempUnit) => {
   const { list, city } = data
   const firstRecord = new Date(list[0].dt * 1000).getHours()
 
-  list.map(({ dt, main, wind, visibility, weather, clouds }) => {
+  list.map(({ dt, main, wind, weather, clouds }) => {
 
     // new object
     const daily_forecast = {}

@@ -3,7 +3,7 @@ import { processApiData } from '../utilities/processApiData.js'
 import { fetchUserLocation } from '../utilities/fetchUserLocation.js'
 import defaultData from '../data/defaultData.js'
 import reducerFunction from './reducer.jsx'
-
+import toast from 'react-hot-toast'
 
 const baseUrl = `http://localhost:3030/data/2.5/forecast?appid=${import.meta.env.VITE_APP_ID}&`
 // const baseUrl = `${import.meta.env.VITE_APP_ENDPOINT}${import.meta.env.VITE_APP_ID}&`
@@ -14,7 +14,7 @@ const initialState = {
   isLoading: false,
   isSideBarOpen: false,
   weatherData: processApiData(defaultData),
-  location: 'beijing',
+  location: 'New Zealand',
   latitude: 0.0,
   longitude: 0.0,
   tempUnit: 'C'
@@ -51,8 +51,25 @@ function AppProvider ({ children }) {
       const data = await response.json()
       const weather_data = processApiData(data, state.tempUnit)
       localStorage.setItem('location', JSON.stringify(data))
+      toast.success('Location Updated')
       dispatch({ type: 'SET_WEATHER', payload: weather_data })
     } catch (e) {
+      toast.error('No Location Found')
+    }
+  }
+
+  const loadData = () => {
+    const storedLocationData = localStorage.getItem('location')
+
+    if (storedLocationData) {
+      const weather_data = processApiData(JSON.parse(storedLocationData), state.tempUnit)
+      dispatch({ type: 'SET_WEATHER', payload: weather_data })
+    } else {
+      if (state.isTextLocation) {
+        fetchData(`${baseUrl}q=${state.location}`).then()
+      } else {
+        fetchData(`${baseUrl}lat=${state.latitude}&lon=${state.longitude}`).then()
+      }
 
     }
   }
@@ -63,22 +80,7 @@ function AppProvider ({ children }) {
 
   // FETCH DATA
   useEffect(() => {
-
-    const storedLocationData = localStorage.getItem('location')
-
-    if (storedLocationData) {
-      const weather_data = processApiData(JSON.parse(storedLocationData), state.tempUnit)
-      dispatch({ type: 'SET_WEATHER', payload: weather_data })
-    }
-    else {
-      if (state.isTextLocation) {
-        fetchData(`${baseUrl}q=${state.location}`).then()
-      } else {
-        fetchData(`${baseUrl}lat=${state.latitude}&lon=${state.longitude}`).then()
-      }
-
-    }
-
+    loadData()
   }, [state.isTextLocation, state.location, state.tempUnit])
 
   return (

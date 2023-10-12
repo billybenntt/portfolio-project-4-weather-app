@@ -2,6 +2,7 @@ import { nanoid } from 'nanoid'
 import SmallCard from './SmallCard.jsx'
 import LargeCard from './LargeCard.jsx'
 import { useGlobalContext } from '../hooks/context.jsx'
+import { Toaster } from 'react-hot-toast'
 
 function MainContent () {
 
@@ -95,6 +96,8 @@ function MainContent () {
 
           {/*AIR PRESSURE*/}
           <LargeCard title="Air Pressure" num={todayForecast.air_pressure} desc=" mb"/>
+
+          <Toaster/>
         </div>
       </div>
     </div>
