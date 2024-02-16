@@ -5,8 +5,7 @@ import defaultData from '../data/defaultData.js'
 import reducerFunction from './reducer.jsx'
 import toast from 'react-hot-toast'
 
-const baseUrl = `http://localhost:3030/data/2.5/forecast?appid=${import.meta.env.VITE_APP_ID}&`
-// const baseUrl = `${import.meta.env.VITE_APP_ENDPOINT}${import.meta.env.VITE_APP_ID}&`
+const baseUrl = `${import.meta.env.VITE_APP_ENDPOINT}${import.meta.env.VITE_APP_ID}&`
 
 // Initial Reducer State
 const initialState = {
